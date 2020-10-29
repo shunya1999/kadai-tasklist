@@ -3,10 +3,7 @@ class TasksController < ApplicationController
   before_action :current_user, only: [:destroy]
   
     def index
-      if logged_in?
-      @task = current_user.tasks.build
       @tasks = current_user.tasks.order(id: :desc)
-      end
     end
     
     def show
